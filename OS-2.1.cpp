@@ -82,10 +82,6 @@ int main() {
             }
         }
 
-        //struct timespec timeout;
-        //timeout.tv_sec = 1;
-        //timeout.tv_nsec = 0;
-
         if (pselect(max_fd + 1, &read_fds, NULL, NULL, NULL, &origMask) < 0) {
             if (errno == EINTR) {
                 continue;
@@ -122,7 +118,7 @@ int main() {
                         printf("Клиент %d отправил 'quit'\n", i);
                         close(client_sockets[i]);
                         client_sockets[i] = -1;
-                        running = 0; // Завершить работу при "quit" от любого из клиентов
+                        running = 0; 
                         break;
                     }
                 } else if (bytes_received == 0) {
