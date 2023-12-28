@@ -123,7 +123,7 @@ int main() {
                         printf("Client %d sent 'quit'. Closing the connection.\n", i);
                         close(client_sockets[i]);
                         client_sockets[i] = -1;
-                        running = 0; // Завершить работу при "quit" от любого из клиентов
+                        running = 0;
                         break;
                     }
                 } else if (bytes_received == 0) {
